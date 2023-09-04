@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アァ～～ハァァアア～ー┐ √レvv～(^q^)─wーーァンヘ√レ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アァ～～ハァァアア～ー┐ √レvv～(^q^)─wーーァンヘ√レ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Headshots-->
+    <title>掲示板-若鷺です-</title>
+    <link href="keijiban.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #FFFFFF;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #00E676;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #FFFFFF;
+      }
+    </style>
+  </head>
+<body>
+ <section>
+     <h3>log</h3>
+      <ul id="log"></ul>
+<script>
+fetch('./deta.json')
+          .then((res) => res.json())
+          .then((json) => {
+            const fragment = document.createDocumentFragment()
+            for(const data of json) {
+              const li = document.createElement('li')
+              li.textContent = date +'▓' + name +':'+ deta
+              fragment.appendChild(li)
+            }
+            document.getElementById('gyagu').appendChild(fragment)
+          })
+      </script>     
+ </section>
+</body>
+</html>
