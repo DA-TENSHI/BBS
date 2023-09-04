@@ -73,7 +73,7 @@ const fetchData = async () => {
   const fragment = document.createDocumentFragment();
   for (const key in json) {
     const li = document.createElement('li');
-    li.textContent = `${name}: ${json[name]}`;
+    li.textContent = `${json[date]}`+'/'+`${json[name]}`+':'+`${json[name]}` ;
     fragment.appendChild(li);
   }
   fetchData();
