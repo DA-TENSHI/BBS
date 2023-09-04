@@ -1,5 +1,16 @@
+<?php
+$fp = fopen('data.csv', 'a+b');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    fputcsv($fp, [$_POST['name'], $_POST['comment'][$_POST[date('Y-m-d')."<br/>\n";]]]);
+    rewind($fp);
+}
+while ($row = fgetcsv($fp)) {
+    $rows[] = $row;
+}
+fclose($fp);
+?>
 <!DOCTYPE html>
-ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+<!--ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 アサヒィスゥパァドゥルァァァァイ
 アサヒィスゥパァドゥルァァァァイ
 アサヒィスゥパァドゥルァァァァイ
@@ -37,4 +48,38 @@
 アサヒィスゥパァドゥルァァァァイ
 アサヒィスゥパァドゥルァァァァイ
 アサヒィスゥパァドゥルァァァァイ
-アサヒィスゥパァドゥルァァァァイ
+アサヒィスゥパァドゥルァァァァイ-->
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Headshots-->
+    <title>掲示板-若鷺です-</title>
+    <link href="keijiban.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+<body>
+  <h1>-掲示板-</h1>
+  <h23>ネタ要素強め</h23>
+  <p>ホームページ、BBS共ににキリ番を踏んだ方は報告願います。踏み逃げ禁止。</p>
+  <section>
+    <!--とりあえずなんか書いとけ-->
+    <h3>White</h3>
+    <form action="" method="post">
+        <div class="name"><span class="label">お前様の名前:</span><input type="text" name="name" value=""></div>
+        <div class="honbun"><span class="label">内容（笑）:</span><textarea name="comment" cols="30" rows="3" maxlength="80" wrap="hard" placeholder="80字以内で入力してください。"></textarea></div>
+        <input type="submit" value="投稿">
+    </form>
+  </section>
+  <section class="toukou">
+    <h3>log</h3>
+    <?php if (!empty($rows)): ?>
+    <ul>
+<?php foreach ($rows as $row): ?>
+        <li>(<?=$row[2]?>)<?=$row[0]?>:<?=$row[1]?></li>
+<?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>投稿はまだありません</p>
+<?php endif; ?>
+  </section>
+</body>
+</html>
