@@ -1,14 +1,3 @@
-<?php
-$fp = fopen('data.csv', 'a+b');
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    fputcsv($fp, [$_POST['name'], $_POST['comment'][$_POST[date('Y-m-d')."<br/>\n";]]]);
-    rewind($fp);
-}
-while ($row = fgetcsv($fp)) {
-    $rows[] = $row;
-}
-fclose($fp);
-?>
 <!DOCTYPE html>
 <!--ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 アサヒィスゥパァドゥルァァァァイ
@@ -55,31 +44,41 @@ fclose($fp);
     <!-- Headshots-->
     <title>掲示板-若鷺です-</title>
     <link href="keijiban.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #FFFFFF;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #00E676;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #FFFFFF;
+      }
+    </style>
   </head>
 <body>
-  <h1>-掲示板-</h1>
-  <h23>ネタ要素強め</h23>
-  <p>ホームページ、BBS共ににキリ番を踏んだ方は報告願います。踏み逃げ禁止。</p>
-  <section>
-    <!--とりあえずなんか書いとけ-->
-    <h3>White</h3>
-    <form action="" method="post">
-        <div class="name"><span class="label">お前様の名前:</span><input type="text" name="name" value=""></div>
-        <div class="honbun"><span class="label">内容（笑）:</span><textarea name="comment" cols="30" rows="3" maxlength="80" wrap="hard" placeholder="80字以内で入力してください。"></textarea></div>
-        <input type="submit" value="投稿">
-    </form>
-  </section>
-  <section class="toukou">
-    <h3>log</h3>
-    <?php if (!empty($rows)): ?>
-    <ul>
-<?php foreach ($rows as $row): ?>
-        <li>(<?=$row[2]?>)<?=$row[0]?>:<?=$row[1]?></li>
-<?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>投稿はまだありません</p>
-<?php endif; ?>
-  </section>
+ <section>
+     <h3>log</h3>
+      <ul id="log"></ul>
+<script>
+        fetch('./data.json')
+          .then((res) => res.json())
+          .then((json) => {
+            const fragment = document.createDocumentFragment()
+            for (const data of json) {
+              const li = document.createElement('li')
+              li.textContent = data
+              fragment.appendChild(li)
+            }
+            document.getElementById('gyagu').appendChild(fragment)
+          })
+      </script>     
+ </section>
 </body>
 </html>
