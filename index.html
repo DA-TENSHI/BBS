@@ -67,34 +67,17 @@
      <h3>log</h3>
       <ul id="log"></ul>
 <script>
-        // XMLHttpRequestを使ってjsonデータを読み込む
-let requestURL = 'deta.json';//jsonへのパス
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
- 
-// JSONデータをJavaScriptオブジェクトに変換
-request.onload = function () {
-  let data = request.response;
-  data = JSON.parse(JSON.stringify(data));
-  dataArray(data);
-}
- 
-// foreachでJSONデータをHTMLに出力
-function dataArray(els) {
-  // JSONデータを出力したいHTML要素を指定
-  let array = document.querySelector('.array');
-  els.forEach(el => {
-    let name = el.name;
-    let date = el.date;
-    let deta = el.deta;
-    let code = '<ul>'+
-    '<li>'+'<b>'+ date +"</b>"+' '+ name +':'+ deta +
-    '</ul>';
-    array.insertAdjacentHTML('beforeend',code);
-  });
-}
+fetch('./deta.json')
+          .then((res) => res.json())
+          .then((json) => {
+            const fragment = document.createDocumentFragment()
+            for (const data of json) {
+              const li = document.createElement('li')
+              li.textContent = date +' ' + name +':'+ deta
+              fragment.appendChild(li)
+            }
+            document.getElementById('gyagu').appendChild(fragment)
+          })
       </script>     
  </section>
 </body>
