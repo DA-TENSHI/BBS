@@ -73,7 +73,7 @@ fetch('./deta.json')
             const fragment = document.createDocumentFragment()
             for (const data of json) {
               const li = document.createElement('li')
-              li.textContent = date +' ' + name +':'+ deta
+              li.textContent = date +'▓' + name +':'+ deta
               fragment.appendChild(li)
             }
             document.getElementById('gyagu').appendChild(fragment)
