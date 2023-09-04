@@ -71,7 +71,7 @@ fetch('./deta.json')
           .then((res) => res.json())
           .then((json) => {
             const fragment = document.createDocumentFragment()
-            for(const key in json) {
+            for(const data of json) {
               const li = document.createElement('li')
               li.textContent = date +'▓' + name +':'+ deta
               fragment.appendChild(li)
