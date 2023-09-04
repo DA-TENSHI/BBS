@@ -76,10 +76,10 @@ const fetchData = async () => {
     li.textContent = `${name}: ${json[name]}`;
     fragment.appendChild(li);
   }
+  fetchData();
   document.getElementById('bbs').appendChild(fragment);
 };
 
-fetchData();
 </script>
  </section>
 </body>
