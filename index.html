@@ -66,22 +66,20 @@
  <section>
      <h3>log</h3>
       <ul id="log">
-<script>
-const fetchData = async () => {
-  const response = await fetch('./deta.json');
-  const json = await response.json();
-  const fragment = document.createDocumentFragment();
-  for (const key in json) {
-    const li = document.createElement('li');
-    li.textContent = `${json[date]}`+'/'+`${json[name]}`+':'+`${json[name]}` ;
-    fragment.appendChild(li);
-  }
-  fetchData();
-  document.getElementById('bbs').appendChild(fragment);
-};
-
-</script>
-</ul>
+<ul id="gyagu"></ul>
+      <script>
+        fetch('./data.json')
+          .then((res) => res.json())
+          .then((json) => {
+            const fragment = document.createDocumentFragment()
+            for (const data of json) {
+              const li = document.createElement('li')
+              li.textContent = data
+              fragment.appendChild(li)
+            }
+            document.getElementById('log').appendChild(fragment)
+          })
+      </script>
  </section>
 </body>
 </html>
